@@ -1,0 +1,36 @@
+# Kafka client
+kafka-python-ng==2.2.3
+# API streaming
+fastapi==0.115.0
+uvicorn[standard]==0.32.0
+websockets==13.1
+
+# Capture réseau
+pyshark==0.6
+scapy==2.6.0
+
+# Machine Learning
+tensorflow==2.18.0
+keras==3.6.0
+scikit-learn==1.5.2
+numpy==1.26.4
+pandas==2.2.3
+xgboost==2.1.1
+optuna==3.6.0
+
+# Neo4j
+neo4j==5.27.0
+
+# Dashboard
+streamlit==1.41.0
+plotly==5.24.1
+
+# Utils
+python-dotenv==1.0.1
+pydantic==2.10.0
+
+# Dev / Tests
+pytest==8.3.4
+pytest-asyncio==0.24.0
+black==24.10.0
+isort==5.13.2

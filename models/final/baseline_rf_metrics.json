@@ -1,0 +1,45 @@
+{
+  "accuracy": 0.994319,
+  "f1_macro": 0.862657,
+  "f1_weighted": 0.995955,
+  "f1_per_class": {
+    "Bots": 0.78,
+    "Brute Force": 0.9992,
+    "DDoS": 0.9998,
+    "DoS": 0.9976,
+    "Normal Traffic": 0.9966,
+    "Port Scanning": 0.9939,
+    "Web Attacks": 0.2716
+  },
+  "model": "RandomForestClassifier",
+  "n_estimators": 200,
+  "max_depth": 20,
+  "class_weight": "balanced",
+  "random_state": 42,
+  "train_time_s": 255.68,
+  "n_train": 1764525,
+  "n_val": 252075,
+  "n_test": 504151,
+  "cv_5fold_f1_macro_mean": 0.859285,
+  "cv_5fold_f1_macro_std": 0.003525,
+  "cv_5fold_scores": [
+    0.864601,
+    0.856411,
+    0.861953,
+    0.855082,
+    0.858379
+  ],
+  "features": [
+    "Average Packet Size",
+    "Subflow Fwd Bytes",
+    "Destination Port",
+    "Init_Win_bytes_forward",
+    "PSH Flag Count",
+    "FIN Flag Count",
+    "ACK Flag Count",
+    "Flow Bytes/s",
+    "Flow Packets/s",
+    "Fwd Packets/s",
+    "Total Fwd Packets"
+  ]
+}

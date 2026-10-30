@@ -1,0 +1,73 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# Environment
+.env
+
+# Data (trop lourd pour Git)
+data/*.csv
+data/*.parquet
+data/processed/
+*.h5
+*.pkl
+*.joblib
+*.npz
+
+# Logs
+*.log
+logs/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker volumes (déjà gérés par compose)
+infra/data/
+
+# Notebooks checkpoints
+.ipynb_checkpoints/
+
+# Node (root-level dev tools)
+node_modules/
+package-lock.json
+
+# LaTeX build artefacts (keep rapport.tex and rapport.pdf)
+*.aux
+*.lof
+*.lot
+*.toc
+*.out
+*.bbl
+*.blg
+
+# WSL Zone.Identifier streams
+*:Zone.Identifier
+*.Zone.Identifier
+
+# Intermediate model checkpoints (models/final/ is kept)
+models/*.keras
+models/mlp_mu/
+
+# Editor backup files
+*.save
+
+# Process noise
+nohup.out
+
+# Root-level Tailwind dev-only package
+/package.json
+
+# Redundant files
+docs/images.rar
+src/
+
+# Duplicate XGBoost model (canonical copy is models/final/)
+models/xgboost_final.json

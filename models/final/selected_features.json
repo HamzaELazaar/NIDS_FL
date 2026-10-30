@@ -1,0 +1,119 @@
+{
+  "features": [
+    "Average Packet Size",
+    "Subflow Fwd Bytes",
+    "Destination Port",
+    "Init_Win_bytes_forward",
+    "PSH Flag Count",
+    "FIN Flag Count",
+    "ACK Flag Count",
+    "Flow Bytes/s",
+    "Flow Packets/s",
+    "Fwd Packets/s",
+    "Total Fwd Packets"
+  ],
+  "label_column": "Attack Type",
+  "n_classes": 7,
+  "classes": [
+    "Normal Traffic",
+    "DoS",
+    "DDoS",
+    "Port Scanning",
+    "Brute Force",
+    "Web Attacks",
+    "Bots"
+  ],
+  "class_distribution": {
+    "Normal Traffic": {
+      "count": 2095057,
+      "pct": 83.1124
+    },
+    "DoS": {
+      "count": 193745,
+      "pct": 7.686
+    },
+    "DDoS": {
+      "count": 128014,
+      "pct": 5.0784
+    },
+    "Port Scanning": {
+      "count": 90694,
+      "pct": 3.5979
+    },
+    "Brute Force": {
+      "count": 9150,
+      "pct": 0.363
+    },
+    "Web Attacks": {
+      "count": 2143,
+      "pct": 0.085
+    },
+    "Bots": {
+      "count": 1948,
+      "pct": 0.0773
+    }
+  },
+  "benchmark_accuracy": 0.9973,
+  "benchmark_f1_macro": 0.8658,
+  "benchmark_n_estimators": 100,
+  "benchmark_cv_folds": 5,
+  "preprocessing": {
+    "strategy": "clip_then_standard_scale",
+    "clip_percentiles": [
+      1,
+      99
+    ],
+    "clip_bounds": {
+      "Average Packet Size": {
+        "lo": 0.0,
+        "hi": 1454.125
+      },
+      "Subflow Fwd Bytes": {
+        "lo": 0.0,
+        "hi": 11606.0
+      },
+      "Destination Port": {
+        "lo": 53.0,
+        "hi": 61924.0
+      },
+      "Init_Win_bytes_forward": {
+        "lo": -1.0,
+        "hi": 65535.0
+      },
+      "PSH Flag Count": {
+        "lo": 0.0,
+        "hi": 1.0
+      },
+      "FIN Flag Count": {
+        "lo": 0.0,
+        "hi": 1.0
+      },
+      "ACK Flag Count": {
+        "lo": 0.0,
+        "hi": 1.0
+      },
+      "Flow Bytes/s": {
+        "lo": 0.0,
+        "hi": 12333333.3333
+      },
+      "Flow Packets/s": {
+        "lo": 0.0606,
+        "hi": 750000.0
+      },
+      "Fwd Packets/s": {
+        "lo": 0.0312,
+        "hi": 750000.0
+      },
+      "Total Fwd Packets": {
+        "lo": 1.0,
+        "hi": 51.0
+      }
+    }
+  },
+  "dataset": {
+    "source": "ericanacletoribeiro/cicids2017-cleaned-and-preprocessed",
+    "n_rows": 2520751,
+    "n_raw_features": 52,
+    "label_col": "Attack Type"
+  }
+}

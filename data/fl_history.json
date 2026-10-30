@@ -1,0 +1,312 @@
+[
+  {
+    "round": 1,
+    "global_f1": 0.8816,
+    "global_accuracy": 0.893,
+    "global_loss": 0.2977,
+    "clients": [
+      {
+        "id": 1,
+        "local_f1": 0.8762,
+        "local_accuracy": 0.8875,
+        "n_samples": 3000,
+        "weights_size_kb": 22.4
+      },
+      {
+        "id": 2,
+        "local_f1": 0.8873,
+        "local_accuracy": 0.8965,
+        "n_samples": 2800,
+        "weights_size_kb": 22.4
+      },
+      {
+        "id": 3,
+        "local_f1": 0.891,
+        "local_accuracy": 0.8848,
+        "n_samples": 3200,
+        "weights_size_kb": 22.4
+      }
+    ],
+    "aggregation_method": "FedAvg",
+    "timestamp": "2025-05-17T08:00:00"
+  },
+  {
+    "round": 2,
+    "global_f1": 0.8843,
+    "global_accuracy": 0.8935,
+    "global_loss": 0.2496,
+    "clients": [
+      {
+        "id": 1,
+        "local_f1": 0.8775,
+        "local_accuracy": 0.8936,
+        "n_samples": 3000,
+        "weights_size_kb": 22.4
+      },
+      {
+        "id": 2,
+        "local_f1": 0.8729,
+        "local_accuracy": 0.8875,
+        "n_samples": 2800,
+        "weights_size_kb": 22.4
+      },
+      {
+        "id": 3,
+        "local_f1": 0.8879,
+        "local_accuracy": 0.8944,
+        "n_samples": 3200,
+        "weights_size_kb": 22.4
+      }
+    ],
+    "aggregation_method": "FedAvg",
+    "timestamp": "2025-05-17T08:05:00"
+  },
+  {
+    "round": 3,
+    "global_f1": 0.8907,
+    "global_accuracy": 0.8979,
+    "global_loss": 0.2178,
+    "clients": [
+      {
+        "id": 1,
+        "local_f1": 0.8982,
+        "local_accuracy": 0.8881,
+        "n_samples": 3000,
+        "weights_size_kb": 22.4
+      },
+      {
+        "id": 2,
+        "local_f1": 0.8981,
+        "local_accuracy": 0.9019,
+        "n_samples": 2800,
+        "weights_size_kb": 22.4
+      },
+      {
+        "id": 3,
+        "local_f1": 0.8869,
+        "local_accuracy": 0.891,
+        "n_samples": 3200,
+        "weights_size_kb": 22.4
+      }
+    ],
+    "aggregation_method": "FedAvg",
+    "timestamp": "2025-05-17T08:10:00"
+  },
+  {
+    "round": 4,
+    "global_f1": 0.9042,
+    "global_accuracy": 0.9188,
+    "global_loss": 0.1804,
+    "clients": [
+      {
+        "id": 1,
+        "local_f1": 0.8944,
+        "local_accuracy": 0.9107,
+        "n_samples": 3000,
+        "weights_size_kb": 22.4
+      },
+      {
+        "id": 2,
+        "local_f1": 0.9125,
+        "local_accuracy": 0.9209,
+        "n_samples": 2800,
+        "weights_size_kb": 22.4
+      },
+      {
+        "id": 3,
+        "local_f1": 0.9116,
+        "local_accuracy": 0.9234,
+        "n_samples": 3200,
+        "weights_size_kb": 22.4
+      }
+    ],
+    "aggregation_method": "FedAvg",
+    "timestamp": "2025-05-17T08:15:00"
+  },
+  {
+    "round": 5,
+    "global_f1": 0.925,
+    "global_accuracy": 0.9354,
+    "global_loss": 0.1619,
+    "clients": [
+      {
+        "id": 1,
+        "local_f1": 0.9221,
+        "local_accuracy": 0.9364,
+        "n_samples": 3000,
+        "weights_size_kb": 22.4
+      },
+      {
+        "id": 2,
+        "local_f1": 0.9329,
+        "local_accuracy": 0.9377,
+        "n_samples": 2800,
+        "weights_size_kb": 22.4
+      },
+      {
+        "id": 3,
+        "local_f1": 0.9337,
+        "local_accuracy": 0.9369,
+        "n_samples": 3200,
+        "weights_size_kb": 22.4
+      }
+    ],
+    "aggregation_method": "FedAvg",
+    "timestamp": "2025-05-17T08:20:00"
+  },
+  {
+    "round": 6,
+    "global_f1": 0.9458,
+    "global_accuracy": 0.9578,
+    "global_loss": 0.1245,
+    "clients": [
+      {
+        "id": 1,
+        "local_f1": 0.9393,
+        "local_accuracy": 0.9536,
+        "n_samples": 3000,
+        "weights_size_kb": 22.4
+      },
+      {
+        "id": 2,
+        "local_f1": 0.9357,
+        "local_accuracy": 0.9525,
+        "n_samples": 2800,
+        "weights_size_kb": 22.4
+      },
+      {
+        "id": 3,
+        "local_f1": 0.9362,
+        "local_accuracy": 0.9534,
+        "n_samples": 3200,
+        "weights_size_kb": 22.4
+      }
+    ],
+    "aggregation_method": "FedAvg",
+    "timestamp": "2025-05-17T08:25:00"
+  },
+  {
+    "round": 7,
+    "global_f1": 0.9593,
+    "global_accuracy": 0.9706,
+    "global_loss": 0.1098,
+    "clients": [
+      {
+        "id": 1,
+        "local_f1": 0.9562,
+        "local_accuracy": 0.9648,
+        "n_samples": 3000,
+        "weights_size_kb": 22.4
+      },
+      {
+        "id": 2,
+        "local_f1": 0.9537,
+        "local_accuracy": 0.9794,
+        "n_samples": 2800,
+        "weights_size_kb": 22.4
+      },
+      {
+        "id": 3,
+        "local_f1": 0.9628,
+        "local_accuracy": 0.9728,
+        "n_samples": 3200,
+        "weights_size_kb": 22.4
+      }
+    ],
+    "aggregation_method": "FedAvg",
+    "timestamp": "2025-05-17T08:30:00"
+  },
+  {
+    "round": 8,
+    "global_f1": 0.9657,
+    "global_accuracy": 0.9724,
+    "global_loss": 0.0989,
+    "clients": [
+      {
+        "id": 1,
+        "local_f1": 0.9577,
+        "local_accuracy": 0.97,
+        "n_samples": 3000,
+        "weights_size_kb": 22.4
+      },
+      {
+        "id": 2,
+        "local_f1": 0.9775,
+        "local_accuracy": 0.9752,
+        "n_samples": 2800,
+        "weights_size_kb": 22.4
+      },
+      {
+        "id": 3,
+        "local_f1": 0.9671,
+        "local_accuracy": 0.9761,
+        "n_samples": 3200,
+        "weights_size_kb": 22.4
+      }
+    ],
+    "aggregation_method": "FedAvg",
+    "timestamp": "2025-05-17T08:35:00"
+  },
+  {
+    "round": 9,
+    "global_f1": 0.9684,
+    "global_accuracy": 0.9818,
+    "global_loss": 0.0859,
+    "clients": [
+      {
+        "id": 1,
+        "local_f1": 0.9619,
+        "local_accuracy": 0.9725,
+        "n_samples": 3000,
+        "weights_size_kb": 22.4
+      },
+      {
+        "id": 2,
+        "local_f1": 0.964,
+        "local_accuracy": 0.9772,
+        "n_samples": 2800,
+        "weights_size_kb": 22.4
+      },
+      {
+        "id": 3,
+        "local_f1": 0.9614,
+        "local_accuracy": 0.9907,
+        "n_samples": 3200,
+        "weights_size_kb": 22.4
+      }
+    ],
+    "aggregation_method": "FedAvg",
+    "timestamp": "2025-05-17T08:40:00"
+  },
+  {
+    "round": 10,
+    "global_f1": 0.9694,
+    "global_accuracy": 0.9832,
+    "global_loss": 0.0676,
+    "clients": [
+      {
+        "id": 1,
+        "local_f1": 0.9731,
+        "local_accuracy": 0.9811,
+        "n_samples": 3000,
+        "weights_size_kb": 22.4
+      },
+      {
+        "id": 2,
+        "local_f1": 0.9793,
+        "local_accuracy": 0.9823,
+        "n_samples": 2800,
+        "weights_size_kb": 22.4
+      },
+      {
+        "id": 3,
+        "local_f1": 0.9638,
+        "local_accuracy": 0.9781,
+        "n_samples": 3200,
+        "weights_size_kb": 22.4
+      }
+    ],
+    "aggregation_method": "FedAvg",
+    "timestamp": "2025-05-17T08:45:00"
+  }
+]

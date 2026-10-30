@@ -1,0 +1,93 @@
+═══════════════════════════════════════════════════════
+  CICIDS2017 — Résumé du dataset
+  Généré le : 2026-05-05 14:34:42
+═══════════════════════════════════════════════════════
+
+Source Kaggle : ericanacletoribeiro/cicids2017-cleaned-and-preprocessed
+
+─── Fichiers CSV ───────────────────────────────────────
+  cicids2017_cleaned.csv  |  685M  |  2520752 lignes
+
+─── Colonnes ───────────────────────────────────────────
+    1. Destination Port
+    2. Flow Duration
+    3. Total Fwd Packets
+    4. Total Length of Fwd Packets
+    5. Fwd Packet Length Max
+    6. Fwd Packet Length Min
+    7. Fwd Packet Length Mean
+    8. Fwd Packet Length Std
+    9. Bwd Packet Length Max
+   10. Bwd Packet Length Min
+   11. Bwd Packet Length Mean
+   12. Bwd Packet Length Std
+   13. Flow Bytes/s
+   14. Flow Packets/s
+   15. Flow IAT Mean
+   16. Flow IAT Std
+   17. Flow IAT Max
+   18. Flow IAT Min
+   19. Fwd IAT Total
+   20. Fwd IAT Mean
+   21. Fwd IAT Std
+   22. Fwd IAT Max
+   23. Fwd IAT Min
+   24. Bwd IAT Total
+   25. Bwd IAT Mean
+   26. Bwd IAT Std
+   27. Bwd IAT Max
+   28. Bwd IAT Min
+   29. Fwd Header Length
+   30. Bwd Header Length
+   31. Fwd Packets/s
+   32. Bwd Packets/s
+   33. Min Packet Length
+   34. Max Packet Length
+   35. Packet Length Mean
+   36. Packet Length Std
+   37. Packet Length Variance
+   38. FIN Flag Count
+   39. PSH Flag Count
+   40. ACK Flag Count
+   41. Average Packet Size
+   42. Subflow Fwd Bytes
+   43. Init_Win_bytes_forward
+   44. Init_Win_bytes_backward
+   45. act_data_pkt_fwd
+   46. min_seg_size_forward
+   47. Active Mean
+   48. Active Max
+   49. Active Min
+   50. Idle Mean
+   51. Idle Max
+   52. Idle Min
+   53. Attack Type
+
+─── Distribution des labels ────────────────────────────
+  Total : 2,520,751 paquets
+  Normal Traffic                            2,095,057  (83.11%)
+  DoS                                         193,745  (7.69%)
+  DDoS                                        128,014  (5.08%)
+  Port Scanning                                90,694  (3.60%)
+  Brute Force                                   9,150  (0.36%)
+  Web Attacks                                   2,143  (0.09%)
+  Bots                                          1,948  (0.08%)
+
+─── Features CICIDS2017 → features live (7 en commun) ─
+  'Destination Port'       ← dst_port
+  'Average Packet Size'    ← packet_length
+  'FIN Flag Count'         ← fin_flag
+  'PSH Flag Count'         ← psh_flag
+  'ACK Flag Count'         ← ack_flag
+  'Init_Win_bytes_forward' ← window_size
+  'Subflow Fwd Bytes'      ← payload_length
+
+─── Features live-only (contexte pipeline, absent CICIDS2017) ──
+  timestamp, protocol, src_ip, dst_ip, src_port, ttl
+  syn_flag, rst_flag, urg_flag, icmp_type, icmp_code
+
+─── Features CICIDS2017-only (flow-level, non extractables/paquet) ─
+  Flow Duration, Total Fwd/Bwd Packets, Flow IAT stats,
+  Flow Bytes/s, Packets/s, Fwd/Bwd Header Length, Active/Idle stats…
+
+═══════════════════════════════════════════════════════

@@ -1,0 +1,176 @@
+{
+  "generated": "2026-05-05T15:18:35.844407",
+  "sample": 100000,
+  "group_a": {
+    "label": "7 features (base)",
+    "features": [
+      "Destination Port",
+      "FIN Flag Count",
+      "PSH Flag Count",
+      "ACK Flag Count",
+      "Init_Win_bytes_forward",
+      "Subflow Fwd Bytes",
+      "Average Packet Size"
+    ],
+    "accuracy": 0.99375,
+    "train_time": 1.52,
+    "n_train": 80000,
+    "n_test": 20000,
+    "importances": {
+      "Destination Port": 0.180108,
+      "FIN Flag Count": 0.034087,
+      "PSH Flag Count": 0.047466,
+      "ACK Flag Count": 0.030995,
+      "Init_Win_bytes_forward": 0.13116,
+      "Subflow Fwd Bytes": 0.24454,
+      "Average Packet Size": 0.331644
+    },
+    "report": {
+      "Bots": {
+        "precision": 0.8182,
+        "recall": 0.6,
+        "f1-score": 0.6923,
+        "support": 15.0
+      },
+      "Brute Force": {
+        "precision": 1.0,
+        "recall": 0.9726,
+        "f1-score": 0.9861,
+        "support": 73.0
+      },
+      "DDoS": {
+        "precision": 1.0,
+        "recall": 0.998,
+        "f1-score": 0.999,
+        "support": 1016.0
+      },
+      "DoS": {
+        "precision": 0.977,
+        "recall": 0.9662,
+        "f1-score": 0.9715,
+        "support": 1537.0
+      },
+      "Normal Traffic": {
+        "precision": 0.9951,
+        "recall": 0.9975,
+        "f1-score": 0.9963,
+        "support": 16622.0
+      },
+      "Port Scanning": {
+        "precision": 0.9917,
+        "recall": 0.9931,
+        "f1-score": 0.9924,
+        "support": 720.0
+      },
+      "Web Attacks": {
+        "precision": 1.0,
+        "recall": 0.0588,
+        "f1-score": 0.1111,
+        "support": 17.0
+      },
+      "accuracy": 0.9938,
+      "macro avg": {
+        "precision": 0.9688,
+        "recall": 0.798,
+        "f1-score": 0.8212,
+        "support": 20000.0
+      },
+      "weighted avg": {
+        "precision": 0.9937,
+        "recall": 0.9938,
+        "f1-score": 0.9934,
+        "support": 20000.0
+      }
+    }
+  },
+  "group_b": {
+    "label": "11 features (+pseudo-flow)",
+    "features": [
+      "Destination Port",
+      "FIN Flag Count",
+      "PSH Flag Count",
+      "ACK Flag Count",
+      "Init_Win_bytes_forward",
+      "Subflow Fwd Bytes",
+      "Average Packet Size",
+      "Total Fwd Packets",
+      "Flow Bytes/s",
+      "Flow Packets/s",
+      "Fwd Packets/s"
+    ],
+    "accuracy": 0.9966,
+    "train_time": 2.56,
+    "n_train": 80000,
+    "n_test": 20000,
+    "importances": {
+      "Destination Port": 0.097772,
+      "FIN Flag Count": 0.013004,
+      "PSH Flag Count": 0.057775,
+      "ACK Flag Count": 0.020085,
+      "Init_Win_bytes_forward": 0.069438,
+      "Subflow Fwd Bytes": 0.172145,
+      "Average Packet Size": 0.210691,
+      "Total Fwd Packets": 0.090328,
+      "Flow Bytes/s": 0.065966,
+      "Flow Packets/s": 0.109114,
+      "Fwd Packets/s": 0.093681
+    },
+    "report": {
+      "Bots": {
+        "precision": 0.875,
+        "recall": 0.4667,
+        "f1-score": 0.6087,
+        "support": 15.0
+      },
+      "Brute Force": {
+        "precision": 1.0,
+        "recall": 0.9589,
+        "f1-score": 0.979,
+        "support": 73.0
+      },
+      "DDoS": {
+        "precision": 0.999,
+        "recall": 0.997,
+        "f1-score": 0.998,
+        "support": 1016.0
+      },
+      "DoS": {
+        "precision": 0.9974,
+        "recall": 0.9941,
+        "f1-score": 0.9958,
+        "support": 1537.0
+      },
+      "Normal Traffic": {
+        "precision": 0.9975,
+        "recall": 0.9986,
+        "f1-score": 0.998,
+        "support": 16622.0
+      },
+      "Port Scanning": {
+        "precision": 0.9917,
+        "recall": 0.9917,
+        "f1-score": 0.9917,
+        "support": 720.0
+      },
+      "Web Attacks": {
+        "precision": 0.125,
+        "recall": 0.1176,
+        "f1-score": 0.1212,
+        "support": 17.0
+      },
+      "accuracy": 0.9966,
+      "macro avg": {
+        "precision": 0.8551,
+        "recall": 0.7892,
+        "f1-score": 0.8132,
+        "support": 20000.0
+      },
+      "weighted avg": {
+        "precision": 0.9965,
+        "recall": 0.9966,
+        "f1-score": 0.9965,
+        "support": 20000.0
+      }
+    }
+  }
+}

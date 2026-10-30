@@ -1,0 +1,33 @@
+{
+  "accuracy": 0.994418,
+  "f1_macro": 0.862032,
+  "f1_weighted": 0.995992,
+  "f1_per_class": {
+    "Bots": 0.767068,
+    "Brute Force": 0.998908,
+    "DDoS": 0.999512,
+    "DoS": 0.997463,
+    "Normal Traffic": 0.996649,
+    "Port Scanning": 0.99424,
+    "Web Attacks": 0.280386
+  },
+  "train_time_s": 454.55,
+  "optuna_time_s": 5475.14,
+  "optuna_n_trials": 30,
+  "best_val_f1": 0.863885,
+  "best_params": {
+    "n_estimators": 248,
+    "max_depth": 10,
+    "learning_rate": 0.11710229745156199,
+    "subsample": 0.8244637340627596,
+    "colsample_bytree": 0.8660698517703787,
+    "min_child_weight": 2,
+    "gamma": 0.005686927489314625,
+    "reg_alpha": 0.29360729815930653,
+    "reg_lambda": 0.7509013314745643
+  },
+  "baseline_acc": 0.99418,
+  "baseline_f1": 0.862068,
+  "n_train": 2016600,
+  "n_test": 504151
+}

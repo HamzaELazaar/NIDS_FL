@@ -1,0 +1,33 @@
+{
+  "best_version": "MLP v3 (combined)",
+  "metrics": {
+    "accuracy": 0.922196,
+    "f1_macro": 0.615573,
+    "f1_weighted": 0.942996,
+    "precision_macro": 0.569613,
+    "recall_macro": 0.970427
+  },
+  "f1_per_class": {
+    "Bots": 0.053528,
+    "Brute Force": 0.396119,
+    "DDoS": 0.956781,
+    "DoS": 0.846205,
+    "Normal Traffic": 0.953743,
+    "Port Scanning": 0.975582,
+    "Web Attacks": 0.127051
+  },
+  "improvement_vs_baseline": {
+    "accuracy": "-1.97pp",
+    "f1_macro": "-0.0276"
+  },
+  "training_time_seconds": 5971.9,
+  "hyperparameters": {
+    "architecture": "11→256→128→64→32→7",
+    "dropout": 0.4,
+    "l2": 0.001,
+    "batch_size": 1024,
+    "optimizer": "AdamW(lr=0.001, wd=0.0001, clipnorm=1.0)",
+    "callbacks": "EarlyStopping(p=20) + ReduceLR(p=8) + Checkpoint"
+  },
+  "target_met": false
+}

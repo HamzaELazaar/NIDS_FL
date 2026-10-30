@@ -1,0 +1,239 @@
+{
+  "generated_at": "2026-05-10T12:33:45.949272+00:00",
+  "project": "NIDS-FL (CICIDS2017)",
+  "dataset": "CICIDS2017 \u2014 2 268 676 samples, 11 features, 7 classes",
+  "selection_rules": {
+    "best_centralized_multiclass": {
+      "description": "Mod\u00e8le champion multi-classe (7 classes)",
+      "candidates": [
+        "rf",
+        "xgboost",
+        "mlp_multi_v1",
+        "mlp_multi_v2",
+        "mlp_multi_v3"
+      ],
+      "criterion": "f1_macro",
+      "prefer": "xgboost",
+      "tiebreak_threshold": 0.002,
+      "output_name": "best_centralized_multiclass"
+    },
+    "best_centralized_binary": {
+      "description": "MLP binaire \u2014 point de d\u00e9part FL",
+      "candidates": [
+        "mlp_binary_v1",
+        "mlp_binary_v2",
+        "mlp_binary_v3"
+      ],
+      "criterion": "f1_macro",
+      "output_name": "best_mlp_binary"
+    },
+    "baseline_centralized": {
+      "description": "R\u00e9f\u00e9rence acad\u00e9mique (RandomForest)",
+      "candidates": [
+        "rf"
+      ],
+      "criterion": null,
+      "output_name": "baseline_rf"
+    }
+  },
+  "winners": {
+    "best_centralized_multiclass": {
+      "model_id": "xgboost",
+      "role": "best_centralized_multiclass",
+      "description": "Mod\u00e8le champion multi-classe (7 classes)",
+      "file": "best_centralized_multiclass.json",
+      "format": "xgboost-json",
+      "size_bytes": 9.565452575683594,
+      "size_human": "9.6 MB",
+      "metrics": {
+        "accuracy": 0.994418,
+        "f1_macro": 0.862032,
+        "f1_weighted": 0.995992,
+        "f1_per_class": {
+          "Bots": 0.767068,
+          "Brute Force": 0.998908,
+          "DDoS": 0.999512,
+          "DoS": 0.997463,
+          "Normal Traffic": 0.996649,
+          "Port Scanning": 0.99424,
+          "Web Attacks": 0.280386
+        },
+        "train_time_s": 454.55,
+        "optuna_time_s": 5475.14,
+        "optuna_n_trials": 30,
+        "best_val_f1": 0.863885,
+        "best_params": {
+          "n_estimators": 248,
+          "max_depth": 10,
+          "learning_rate": 0.11710229745156199,
+          "subsample": 0.8244637340627596,
+          "colsample_bytree": 0.8660698517703787,
+          "min_child_weight": 2,
+          "gamma": 0.005686927489314625,
+          "reg_alpha": 0.29360729815930653,
+          "reg_lambda": 0.7509013314745643
+        },
+        "baseline_acc": 0.99418,
+        "baseline_f1": 0.862068,
+        "n_train": 2016600,
+        "n_test": 504151
+      },
+      "validation": {
+        "loads_ok": true,
+        "error": null
+      }
+    },
+    "best_mlp_binary": {
+      "model_id": "mlp_binary_v3",
+      "role": "best_centralized_binary",
+      "description": "MLP binaire \u2014 point de d\u00e9part FL",
+      "file": "best_mlp_binary.keras",
+      "format": "keras",
+      "size_bytes": 1.0035419464111328,
+      "size_human": "1.0 MB",
+      "metrics": {
+        "accuracy": 0.993813,
+        "f1_macro": 0.988866,
+        "f1_weighted": 0.993781,
+        "precision": 0.994037,
+        "recall": 0.983868,
+        "auc": 0.99969,
+        "ap": 0.998408
+      },
+      "validation": {
+        "loads_ok": true,
+        "error": null
+      }
+    },
+    "baseline_rf": {
+      "model_id": "rf",
+      "role": "baseline_centralized",
+      "description": "R\u00e9f\u00e9rence acad\u00e9mique (RandomForest)",
+      "file": "baseline_rf.joblib",
+      "format": "sklearn-joblib",
+      "size_bytes": 21.564438819885254,
+      "size_human": "21.6 MB",
+      "metrics": {
+        "accuracy": 0.994319,
+        "f1_macro": 0.862657,
+        "f1_weighted": 0.995955,
+        "f1_per_class": {
+          "Bots": 0.78,
+          "Brute Force": 0.9992,
+          "DDoS": 0.9998,
+          "DoS": 0.9976,
+          "Normal Traffic": 0.9966,
+          "Port Scanning": 0.9939,
+          "Web Attacks": 0.2716
+        },
+        "model": "RandomForestClassifier",
+        "n_estimators": 200,
+        "max_depth": 20,
+        "class_weight": "balanced",
+        "random_state": 42,
+        "train_time_s": 255.68,
+        "n_train": 1764525,
+        "n_val": 252075,
+        "n_test": 504151,
+        "cv_5fold_f1_macro_mean": 0.859285,
+        "cv_5fold_f1_macro_std": 0.003525,
+        "cv_5fold_scores": [
+          0.864601,
+          0.856411,
+          0.861953,
+          0.855082,
+          0.858379
+        ],
+        "features": [
+          "Average Packet Size",
+          "Subflow Fwd Bytes",
+          "Destination Port",
+          "Init_Win_bytes_forward",
+          "PSH Flag Count",
+          "FIN Flag Count",
+          "ACK Flag Count",
+          "Flow Bytes/s",
+          "Flow Packets/s",
+          "Fwd Packets/s",
+          "Total Fwd Packets"
+        ]
+      },
+      "validation": {
+        "loads_ok": true,
+        "error": null
+      }
+    }
+  },
+  "all_evaluated": [
+    {
+      "model_id": "mlp_binary_v3",
+      "file": "models/mlp_bin_v3_best.keras",
+      "f1_macro": 0.988866,
+      "accuracy": 0.993813,
+      "size_bytes": 1.0035419464111328,
+      "size_human": "1.0 MB"
+    },
+    {
+      "model_id": "mlp_binary_v2",
+      "file": "models/mlp_bin_v2_best.keras",
+      "f1_macro": 0.987,
+      "accuracy": 0.9925,
+      "size_bytes": 1.0035247802734375,
+      "size_human": "1.0 MB"
+    },
+    {
+      "model_id": "mlp_binary_v1",
+      "file": "models/mlp_bin_v1_best.keras",
+      "f1_macro": 0.986,
+      "accuracy": 0.992,
+      "size_bytes": 1.0034189224243164,
+      "size_human": "1.0 MB"
+    },
+    {
+      "model_id": "rf",
+      "file": "models/rf_model.joblib",
+      "f1_macro": 0.862657,
+      "accuracy": 0.994319,
+      "size_bytes": 21.564438819885254,
+      "size_human": "21.6 MB"
+    },
+    {
+      "model_id": "xgboost",
+      "file": "models/xgboost_final.json",
+      "f1_macro": 0.862032,
+      "accuracy": 0.994418,
+      "size_bytes": 9.565452575683594,
+      "size_human": "9.6 MB"
+    },
+    {
+      "model_id": "mlp_multi_v2",
+      "file": "models/mlp_v2_focal_best.keras",
+      "f1_macro": 0.6687,
+      "accuracy": 0.935,
+      "size_bytes": 1.0048398971557617,
+      "size_human": "1.0 MB"
+    },
+    {
+      "model_id": "mlp_multi_v1",
+      "file": "models/mlp_v1_balanced_best.keras",
+      "f1_macro": 0.62,
+      "accuracy": 0.9401,
+      "size_bytes": 1.004744529724121,
+      "size_human": "1.0 MB"
+    },
+    {
+      "model_id": "mlp_multi_v3",
+      "file": "models/mlp_v3_combined_best.keras",
+      "f1_macro": 0.615573,
+      "accuracy": 0.922196,
+      "size_bytes": 1.0048580169677734,
+      "size_human": "1.0 MB"
+    }
+  ],
+  "artefacts": {
+    "scaler": "models/final/scaler.joblib",
+    "label_encoder": "models/final/label_encoder.joblib",
+    "selected_features": "models/final/selected_features.json"
+  },
+  "report_link": "models/rapport_centralized.md"
+}

@@ -1,0 +1,77 @@
+
+╔══════════════════════════════════════════════════════════════════╗
+║        NIDS-FL — Benchmark Features  (2026-05-05 15:18)          ║
+╚══════════════════════════════════════════════════════════════════╝
+
+  Groupe A (7 features (base)) : 7 features
+  Groupe B (11 features (+pseudo-flow)) : 11 features
+  Train / Test split     : 80 / 20
+  Modèle                 : RandomForest (n_estimators=100)
+  Train A / B            : 1.5s / 2.6s
+  Échantillon            : 100,000 lignes
+
+
+═══════════════════════ PRÉCISION GLOBALE ════════════════════════
+
+  Groupe                 Accuracy        Delta
+  ──────────────────── ──────────   ──────────
+  7 features (base)        99.38%
+  11 features (+pseudo-flow)     99.66%   +0.29 pp
+
+
+══════════════════════ F1-SCORE PAR CLASSE ═══════════════════════
+
+  Classe                        F1-A     F1-B        Δ F1    Δ Recall
+  ────────────────────────── ───────  ───────  ──────────  ──────────
+  Bots                         0.692    0.609  -8.36 pp  -13.33 pp  (n=15)
+  Brute Force                  0.986    0.979  -0.71 pp  -1.37 pp  (n=73)
+  DDoS                         0.999    0.998  -0.10 pp  -0.10 pp  (n=1,016)
+  DoS                          0.972    0.996  +2.42 pp  +2.80 pp  (n=1,537)
+  Normal Traffic               0.996    0.998  +0.17 pp  +0.11 pp  (n=16,622)
+  Port Scanning                0.992    0.992  -0.07 pp  -0.14 pp  (n=720)
+  Web Attacks                  0.111    0.121  +1.01 pp  +5.88 pp  (n=17)
+
+
+══════════ IMPORTANCE DES FEATURES — 7 features (base) ═══════════
+
+  Average Packet Size             0.332  ████████████████████
+  Subflow Fwd Bytes               0.245  ███████████████░░░░░
+  Destination Port                0.180  ███████████░░░░░░░░░
+  Init_Win_bytes_forward          0.131  ████████░░░░░░░░░░░░
+  PSH Flag Count                  0.047  ███░░░░░░░░░░░░░░░░░
+  FIN Flag Count                  0.034  ██░░░░░░░░░░░░░░░░░░
+  ACK Flag Count                  0.031  ██░░░░░░░░░░░░░░░░░░
+
+══════ IMPORTANCE DES FEATURES — 11 features (+pseudo-flow) ══════
+
+  Average Packet Size             0.211  ████████████████████
+  Subflow Fwd Bytes               0.172  ████████████████░░░░
+  Flow Packets/s                  0.109  ██████████░░░░░░░░░░  ← nouveau
+  Destination Port                0.098  █████████░░░░░░░░░░░
+  Fwd Packets/s                   0.094  █████████░░░░░░░░░░░  ← nouveau
+  Total Fwd Packets               0.090  █████████░░░░░░░░░░░  ← nouveau
+  Init_Win_bytes_forward          0.069  ███████░░░░░░░░░░░░░
+  Flow Bytes/s                    0.066  ██████░░░░░░░░░░░░░░  ← nouveau
+  PSH Flag Count                  0.058  █████░░░░░░░░░░░░░░░
+  ACK Flag Count                  0.020  ██░░░░░░░░░░░░░░░░░░
+  FIN Flag Count                  0.013  █░░░░░░░░░░░░░░░░░░░
+
+═════════════ CONTRIBUTION DES PSEUDO-FLOW FEATURES ══════════════
+
+  Features pseudo-flow : Flow Bytes/s, Flow Packets/s, Fwd Packets/s, Total Fwd Packets
+  Importance totale    : 35.9% du modèle B
+
+
+═════════════════════════════ RÉSUMÉ ═════════════════════════════
+
+  ✅ Accuracy :  99.38%  →  99.66%   (+0.29 pp)
+  ✅ Pseudo-flow features représentent 36% de l'importance totale (Groupe B)
+
+  Gains notables par classe :
+    ▼ Bots                     F1 0.692 → 0.609  (-8.4 pp)
+    ▼ Brute Force              F1 0.986 → 0.979  (-0.7 pp)
+    ▲ DoS                      F1 0.972 → 0.996  (+2.4 pp)
+    ▲ Web Attacks              F1 0.111 → 0.121  (+1.0 pp)
+
+══════════════════════════════════════════════════════════════════
+

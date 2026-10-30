@@ -1,0 +1,84 @@
+# Stack moderne 2026 : Kafka 4.1 (KRaft) + Neo4j + Kafka UI
+# Pas de ZooKeeper - KRaft mode natif !
+
+services:
+
+  # ============================================
+  # KAFKA 4.1 en mode KRaft (sans ZooKeeper)
+  # ============================================
+  kafka:
+    image: apache/kafka:4.1.0
+    hostname: kafka
+    container_name: nids-kafka
+    ports:
+      - "9092:9092"      # Interne containers (kafka-ui → kafka)
+      - "29092:29092"    # Externe WSL2/host (code Python)
+      - "9093:9093"      # Port controller KRaft
+    environment:
+      # --- Identité du node ---
+      KAFKA_NODE_ID: 1
+      KAFKA_PROCESS_ROLES: 'broker,controller'
+      CLUSTER_ID: 'MkU3OEVBNTcwNTJENDM2Qk'
+
+      # --- Listeners (où Kafka écoute) ---
+      # PLAINTEXT  : trafic inter-containers  → kafka:9092
+      # EXTERNAL   : clients hôte WSL2/Python → localhost:29092
+      KAFKA_LISTENERS: 'PLAINTEXT://0.0.0.0:9092,EXTERNAL://0.0.0.0:29092,CONTROLLER://0.0.0.0:9093'
+      KAFKA_ADVERTISED_LISTENERS: 'PLAINTEXT://kafka:9092,EXTERNAL://localhost:29092'
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: 'CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT,EXTERNAL:PLAINTEXT'
+      KAFKA_INTER_BROKER_LISTENER_NAME: 'PLAINTEXT'
+      KAFKA_CONTROLLER_LISTENER_NAMES: 'CONTROLLER'
+      KAFKA_CONTROLLER_QUORUM_VOTERS: '1@kafka:9093'
+
+      # --- Tuning pour single-node dev ---
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
+      KAFKA_NUM_PARTITIONS: 3            # 3 partitions par défaut = 3 clients FL
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: 'true'
+    volumes:
+      - kafka_data:/var/lib/kafka/data
+    healthcheck:
+      test: ["CMD-SHELL", "/opt/kafka/bin/kafka-broker-api-versions.sh --bootstrap-server localhost:9092 || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ============================================
+  # KAFKA UI - Interface graphique pour Kafka
+  # Kafbat UI is the maintained successor of Provectus Kafka UI.
+  # ============================================
+  kafka-ui:
+    image: ghcr.io/kafbat/kafka-ui:latest
+    container_name: nids-kafka-ui
+    depends_on:
+      - kafka
+    ports:
+      - "8081:8080"
+    environment:
+      KAFKA_CLUSTERS_0_NAME: nids-cluster
+      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:9092
+      DYNAMIC_CONFIG_ENABLED: 'true'
+
+  # ============================================
+  # NEO4J - Graphe d'attaques
+  # ============================================
+  neo4j:
+    image: neo4j:5.26-community
+    container_name: nids-neo4j
+    ports:
+      - "7474:7474"     # Browser (Neo4j Web UI)
+      - "7687:7687"     # Bolt protocol (driver Python)
+    environment:
+      NEO4J_AUTH: neo4j/changeme
+      NEO4J_PLUGINS: '["apoc"]'
+      NEO4J_dbms_security_procedures_unrestricted: apoc.*
+    volumes:
+      - neo4j_data:/data
+      - neo4j_logs:/logs
+
+volumes:
+  kafka_data:
+  neo4j_data:
+  neo4j_logs:
